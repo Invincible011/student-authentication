@@ -32,14 +32,15 @@ class Faculty(School):
             Another way to remove a particular in a list.
             
             index = self.course.index(del_course.upper())
-            self.course.upper().pop(index)'''
+            self.course.upper().pop(index)
+            '''
         else:
             return f'{del_course} doesn\'t exit in the List of Courses you want to remove'
 
     def get_courses(self):
         return self.course
     
-    def calculate_gpa(self, name = 'AbdulMumin'):
+    def calculate_gpa(self, s_name = 'AbdulMumin'):
         '''
         Before Student would be able to calculate his or her gpa, the student must be in the Database
         
@@ -82,18 +83,18 @@ class Faculty(School):
     def show_gpa(self):
         return f'Your CGPA is: {self.gpa}'
     
-    def show_remark(self):
+    def show_remark(self, name='AbdulMumin'):
         if (self.gpa >= 4.50) & (self.gpa <= 5.0):
-            return f'Hello {self.name}, Your remark: First Class with {self.gpa} points'
+            return f'Hello {name}, Your remark: First Class with {self.gpa} points'
         
         elif (self.gpa >= 3.50) & (self.gpa <= 4.49):
-            return f'Hello {self.name}, Your remark: Second Class Upper with {self.gpa} points'
+            return f'Hello {name}, Your remark: Second Class Upper with {self.gpa} points'
             
         elif (self.gpa >= 2.50) & (self.gpa <= 3.49):
-            return f'Hello {self.name}, Your remark: Second Class Lower with {self.gpa} points'    
+            return f'Hello {name}, Your remark: Second Class Lower with {self.gpa} points'    
         
         else:
-            return f'Hello {self.name}, Your remark: Third Class with {self.gpa} points'
+            return f'Hello {name}, Your remark: Third Class with {self.gpa} points'
     
     def display_info(self):
         print('THE FACULTY CLASS IS BEING INVOKED!.\n\n')
