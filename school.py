@@ -24,12 +24,8 @@ class School(School_t):
     name = 'University of Ilorin'
     addr = 'Ilorin, Kwara-state'
     motto = 'Better by Far'
-    fac = 'Communication I information Science'
-    dept = 'Computer-Science'
-    course = ['MAT112', 'CSC112', 'CSC114']
-    grade = 'A'
     
-    def __init__(self, sch_type=s_type, sch_name=name, sch_addr=addr, sch_motto=motto):
+    def __init__(self, sch_type=s_type, sch_name=name, sch_addr=addr, sch_motto=motto) -> None:
         super().__init__(sch_type)
         
         # Instance Variables

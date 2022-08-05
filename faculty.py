@@ -2,18 +2,23 @@ from school import School
 import numpy as np
 
 class Faculty(School):
-    def __init__(self, sch_type=School.s_type, sch_name=School.name, sch_addr=School.addr, sch_motto=School.motto, faculy=School.fac, department=School.dept, 
-                 course:list=School.course, grade=School.grade, level=400):
+
+    fac = 'Communication I information Science'
+    dept = 'Computer-Science'
+    course = ['MAT112', 'CSC112', 'CSC114']
+    grade = 'A'
+
+    def __init__(self, sch_type=School.s_type, sch_name=School.name, sch_addr=School.addr, sch_motto=School.motto, faculy=fac, department=dept, 
+                 course:list=course, level=400) -> None:
         super().__init__(sch_type, sch_name, sch_addr, sch_motto)
         self.fac = faculy
         self.dept = department
         self.course = course 
         self.level = level
-        self.grade = grade
         self.gpa = 0
         
     # Create a "Add Course" Instance method
-    def add_course(self, sub_course):
+    def add_course(self, sub_course) -> None:
         if sub_course.upper() in self.course:
             self.course
             return f'{sub_course} is already on your course list.'
@@ -22,8 +27,8 @@ class Faculty(School):
             return f'{sub_course.upper()} was Added to your course list.'
  
     # Create a "Drop Course" Instance method
-    def drop_course(self, del_course):
-        del_course = del_course.uppeer()
+    def drop_course(self, del_course) -> None:
+        del_course = del_course.upper()
         if del_course in self.course:
             self.course.upper().remove(del_course)
             return f'Course {del_course} has been dropped'
@@ -37,10 +42,10 @@ class Faculty(School):
         else:
             return f'{del_course} doesn\'t exit in the List of Courses you want to remove'
 
-    def get_courses(self):
+    def get_courses(self) -> None:
         return self.course
     
-    def calculate_gpa(self, s_name = 'AbdulMumin'):
+    def calculate_gpa(self, s_name = 'AbdulMumin') -> None:
         '''
         Before Student would be able to calculate his or her gpa, the student must be in the Database
         
@@ -80,10 +85,10 @@ class Faculty(School):
         print(f'Total points Earned: \"{self.total}\" \nTotal unit course: "{self.total_unit}"')
         self.gpa = round((self.total / self.total_unit), 2)
             
-    def show_gpa(self):
+    def show_gpa(self) -> None:
         return f'Your CGPA is: {self.gpa}'
     
-    def show_remark(self, name='AbdulMumin'):
+    def show_remark(self, name='AbdulMumin') -> None:
         if (self.gpa >= 4.50) & (self.gpa <= 5.0):
             return f'Hello {name}, Your remark: First Class with {self.gpa} points'
         
@@ -96,7 +101,7 @@ class Faculty(School):
         else:
             return f'Hello {name}, Your remark: Third Class with {self.gpa} points'
     
-    def display_info(self):
+    def display_info(self) -> None:
         print('THE FACULTY CLASS IS BEING INVOKED!.\n\n')
         super().display_info()
         print(f'The name of the Department is {self.dept}')
