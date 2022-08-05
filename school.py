@@ -15,7 +15,6 @@ class School(School_t):
             -> School Motto
             -> Faculty, Department
             -> Courses (List): this should allow user to add or remove course for a certain semester or session. 
-            -> Grade: It collect a string attributes.
     '''
     
     # Class Variables
