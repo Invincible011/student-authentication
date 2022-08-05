@@ -1,4 +1,4 @@
-# student-Authentication-System
+# Student-Authentication-System
 This system is for Student authentication, it shows how students activities is being carried out or manage.
  
 **There are different segments to manage students.**
