@@ -3,10 +3,20 @@ import numpy as np
 
 class Faculty(School):
 
+      '''
+    Documentation:
+    
+        Creating class_variables
+        Params used: 
+            -> Faculty
+            -> Department
+            -> Courses (List): this should allow user to add or remove course for a certain semester or session
+            -> Level
+    '''
+
     fac = 'Communication I information Science'
     dept = 'Computer-Science'
     course = ['MAT112', 'CSC112', 'CSC114']
-    grade = 'A'
 
     def __init__(self, sch_type=School.s_type, sch_name=School.name, sch_addr=School.addr, sch_motto=School.motto, faculy=fac, department=dept, 
                  course:list=course, level=400) -> None:
@@ -23,7 +33,7 @@ class Faculty(School):
             self.course
             return f'{sub_course} is already on your course list.'
         else:
-            self.course.append(sub_course)
+            self.course.append(sub_course.upper())
             return f'{sub_course.upper()} was Added to your course list.'
  
     # Create a "Drop Course" Instance method
@@ -104,7 +114,7 @@ class Faculty(School):
     def display_info(self) -> None:
         print('THE FACULTY CLASS IS BEING INVOKED!.\n\n')
         super().display_info()
-        print(f'The name of the Department is {self.dept}')
+        print(f'Your Department is {self.dept}')
         if self.gpa == 0:
             pass
         else:
