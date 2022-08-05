@@ -104,7 +104,7 @@ class Faculty(School):
     def display_info(self) -> None:
         print('THE FACULTY CLASS IS BEING INVOKED!.\n\n')
         super().display_info()
-        print(f'The name of the Department is {self.dept}')
+        print(f'Your Department is {self.dept}')
         if self.gpa == 0:
             pass
         else:

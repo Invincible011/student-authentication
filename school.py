@@ -34,7 +34,7 @@ class School(School_t):
         self.motto = sch_motto
             
     def display_info(self) -> None:
-        print(f'The type of the School choosing is {self.type}')
-        print(f'The name of the School is {self.name}')
-        print(f'The address of the School is {self.addr}')
-        print(f'The mootto of the School is {self.motto}')
+        print(f'Your School type is "{self.type}"')
+        print(f'Your School name is "{self.name}"')
+        print(f'Your School address is "{self.addr}"')
+        print(f'Your School motto is "{self.motto}"')
