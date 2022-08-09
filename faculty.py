@@ -116,7 +116,7 @@ class Faculty(School):
         super().display_info()
         print(f'Your Department is {self.dept}')
         if self.gpa == 0:
-            pass
+            print(f'Your grade is low, you are not on a good standing. Check back later')
         else:
             print(f'Your GPA is {self.gpa}')
             
