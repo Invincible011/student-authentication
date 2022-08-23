@@ -3,7 +3,7 @@ import numpy as np
 
 class Faculty(School):
 
-      '''
+    '''
     Documentation:
     
         Creating class_variables
@@ -18,10 +18,10 @@ class Faculty(School):
     dept = 'Computer-Science'
     course = ['MAT112', 'CSC112', 'CSC114']
 
-    def __init__(self, sch_type=School.s_type, sch_name=School.name, sch_addr=School.addr, sch_motto=School.motto, faculy=fac, department=dept, 
+    def __init__(self, sch_type=School.s_type, sch_name=School.name, sch_addr=School.addr, sch_motto=School.motto, faculty=fac, department=dept, 
                  course:list=course, level=400) -> None:
         super().__init__(sch_type, sch_name, sch_addr, sch_motto)
-        self.fac = faculy
+        self.fac = faculty 
         self.dept = department
         self.course = course 
         self.level = level
@@ -44,7 +44,7 @@ class Faculty(School):
             return f'Course {del_course} has been dropped'
         
             '''
-            Another way to remove a particular in a list.
+            Another way to remove a particular course in a list of Student Courses.
             
             index = self.course.index(del_course.upper())
             self.course.upper().pop(index)
@@ -56,6 +56,7 @@ class Faculty(School):
         return self.course
     
     def calculate_gpa(self, s_name = 'AbdulMumin') -> None:
+        
         '''
         Before Student would be able to calculate his or her gpa, the student must be in the Database
         
@@ -69,7 +70,7 @@ class Faculty(School):
             self.total = 0
             self.total_unit = 0
             
-            # get the student details: Scores and unit
+            # get the student details: Scores and unit.
             for i in np.arange(len(self.course)):
                 print(f'Course: {self.course[i]}')
                 self.score = int(input(f"Enter the SCORE for \"{self.course[i]}\" -> "))
