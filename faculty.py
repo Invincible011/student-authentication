@@ -14,7 +14,7 @@ class Faculty(School):
             -> Level
     '''
 
-    fac = 'Communication I information Science'
+    fac = 'Communication Information Science'
     dept = 'Computer-Science'
     course = ['MAT112', 'CSC112', 'CSC114']
 
@@ -37,6 +37,13 @@ class Faculty(School):
             return f'{sub_course.upper()} was Added to your course list.'
  
     # Create a "Drop Course" Instance method
+
+    '''
+        Another way to remove a particular course in a list of courses.
+        index = self.course.index(del_course.upper())
+        self.course.upper().pop(index)
+    '''
+    
     def drop_course(self, del_course) -> None:
         del_course = del_course.upper()
         if del_course in self.course:
@@ -49,6 +56,7 @@ class Faculty(School):
             index = self.course.index(del_course.upper())
             self.course.upper().pop(index)
             '''
+            
         else:
             return f'{del_course} doesn\'t exit in the List of Courses you want to remove'
 
@@ -56,16 +64,16 @@ class Faculty(School):
         return self.course
     
     def calculate_gpa(self, s_name = 'AbdulMumin') -> None:
-        
+
         '''
         Before Student would be able to calculate his or her gpa, the student must be in the Database
         
         Use Flag for Testing then improve when there's a database inplace
         '''
         
-        Flag = True
+        flag = True
         
-        if Flag == True:
+        if flag == True:
             self.score_point= 0
             self.total = 0
             self.total_unit = 0
@@ -112,16 +120,52 @@ class Faculty(School):
         else:
             return f'Hello {name}, Your remark: Third Class with {self.gpa} points'
     
+    def add_student(self):
+
+        '''
+        Check through the database if the Student exist, 
+        If True:
+            return "Student exit"
+        Else:
+            return "add student to the database"
+        '''
+        pass
+    
+    def del_student(self):
+        
+        '''
+        Check through the database if the Student exist, 
+        If True:
+            return "Remove/Delete Student from the School Database" 
+        Else:
+            return "The Studdent you want to remove doesn't exit"
+        '''
+        pass
+
+    def update_session(self):
+
+        '''
+        This feature can still be removed later if no effect
+
+        Check through the database if an existing Student session has been updated,
+
+        If True:
+            return "Student session already been updated" 
+        Else:
+            return "Update the Studdent session for the YEAR."
+        '''
+        pass
+
     def display_info(self) -> None:
         print('THE FACULTY CLASS IS BEING INVOKED!.\n\n')
         super().display_info()
-        print(f'Your Department is {self.dept}')
+        print(f'Your Department is: "{self.dept}"')
         if self.gpa == 0:
             print(f'Your grade is low, you are not on a good standing. Check back later')
         else:
-            print(f'Your GPA is {self.gpa}')
+            print(f'Your GPA is: "{self.gpa}"')
             
         if self.level < 100:
             return 
         else:
-            print(f'Your level is {self.level}')
+            print(f'Your level is: "{self.level}"')
