@@ -18,10 +18,10 @@ class Faculty(School):
     dept = 'Computer-Science'
     course = ['MAT112', 'CSC112', 'CSC114']
 
-    def __init__(self, sch_type=School.s_type, sch_name=School.name, sch_addr=School.addr, sch_motto=School.motto, faculy=fac, department=dept, 
+    def __init__(self, sch_type=School.s_type, sch_name=School.name, sch_addr=School.addr, sch_motto=School.motto, faculty=fac, department=dept, 
                  course:list=course, level=400) -> None:
         super().__init__(sch_type, sch_name, sch_addr, sch_motto)
-        self.fac = faculy
+        self.fac = faculty 
         self.dept = department
         self.course = course 
         self.level = level
@@ -65,8 +65,14 @@ class Faculty(School):
         if del_course in self.course:
             self.course.upper().remove(del_course)
             return f'Course {del_course} has been dropped'
-
-
+        
+            '''
+            Another way to remove a particular course in a list of Student Courses.
+            
+            index = self.course.index(del_course.upper())
+            self.course.upper().pop(index)
+            '''
+            
         else:
             return f'{del_course} doesn\'t exit in the List of Courses you want to remove'
 
@@ -88,7 +94,7 @@ class Faculty(School):
             self.total = 0
             self.total_unit = 0
             
-            # get the student details: Scores and unit
+            # get the student details: Scores and unit.
             for i in np.arange(len(self.course)):
                 print(f'Course: {self.course[i]}')
                 self.score = int(input(f"Enter the SCORE for \"{self.course[i]}\" -> "))
@@ -171,11 +177,12 @@ class Faculty(School):
         super().display_info()
         print(f'Your Department is: "{self.dept}"')
         if self.gpa == 0:
-            pass
+            print(f'Your grade is low, you are not on a good standing. Check back later')
         else:
             print(f'Your GPA is: "{self.gpa}"')
             
         if self.level < 100:
-            return 
+            return
+         
         else:
             print(f'Your level is: "{self.level}"')
