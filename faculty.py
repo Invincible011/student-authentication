@@ -65,13 +65,6 @@ class Faculty(School):
         if del_course in self.course:
             self.course.upper().remove(del_course)
             return f'Course {del_course} has been dropped'
-        
-            '''
-            Another way to remove a particular course in a list of Student Courses.
-            
-            index = self.course.index(del_course.upper())
-            self.course.upper().pop(index)
-            '''
             
         else:
             return f'{del_course} doesn\'t exit in the List of Courses you want to remove'
