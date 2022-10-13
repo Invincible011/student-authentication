@@ -81,7 +81,7 @@ class Faculty(School, Configure):
         flag = True
         
         if flag == True:
-            self.score_point= 0
+            self.score_point = 0
             self.total = 0
             self.total_unit = 0
             
