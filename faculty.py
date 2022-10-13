@@ -1,18 +1,9 @@
 from school import School
+from config import Configure
 import numpy as np
 
-class Faculty(School):
 
-    '''
-    Documentation:
-    
-        Creating class_variables
-        Params used: 
-            -> Faculty
-            -> Department
-            -> Courses (List): this should allow user to add or remove course for a certain semester or session
-            -> Level
-    '''
+class Faculty(School, Configure):
 
     fac = 'Communication Information Science'
     dept = 'Computer-Science'
@@ -27,8 +18,15 @@ class Faculty(School):
         self.level = level
         self.gpa = 0
         
-    def add_stud_course(self) -> None:
+    def add_stud_course(self, student, database) -> None:
+        super.connect_database()
+        if student in database:
+            pass
         
+        else:
+            return f"{student} doesn't exit in the database"
+
+
         '''
         Each student will be able to select courses 
         from his or her Faculty/Departmental/Borrow-course 

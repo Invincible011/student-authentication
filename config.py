@@ -1,6 +1,6 @@
 import sqlite3
 
-class Connection:
+class Configure:
     def connect_database(self):
         self.conn = sqlite3.connect('./database/app.db')
         self.c = self.conn.cursor()
@@ -13,7 +13,7 @@ class Connection:
         self.conn.commit()
     
     def insert_into_database(self):
-        self.c.execute("INSERT INTO students values ('AbdulMumin', 'Onoroyiza', 'Adeyemo', 'MAT112')")
+        self.c.execute("INSERT INTO students VALUES ('AbdulMumin', 'Onoroyiza', 'Adeyemo', 'MAT112')")
         self.conn.commit()
     
     def query_from_database(self, query, database, search):
