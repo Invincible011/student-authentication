@@ -4,18 +4,6 @@ class School_t:
         self.type = sch_type
 
 class School(School_t):
-    '''
-    Documentation:
-    
-        Creating class_variables
-        Params used: 
-            -> School type
-            -> School name
-            -> School Address, Where it was suited
-            -> School Motto
-            -> Faculty, Department
-            -> Courses (List): this should allow user to add or remove course for a certain semester or session. 
-    '''
     
     s_type = 'University'
     name = 'University of Ilorin'

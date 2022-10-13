@@ -1,18 +1,9 @@
 from school import School
+from config import Configure
 import numpy as np
 
-class Faculty(School):
 
-    '''
-    Documentation:
-    
-        Creating class_variables
-        Params used: 
-            -> Faculty
-            -> Department
-            -> Courses (List): this should allow user to add or remove course for a certain semester or session
-            -> Level
-    '''
+class Faculty(School, Configure):
 
     fac = 'Communication Information Science'
     dept = 'Computer-Science'
@@ -27,7 +18,30 @@ class Faculty(School):
         self.level = level
         self.gpa = 0
         
-    # Create a "Add Course" Instance method
+    def add_stud_course(self, student, database) -> None:
+        super.connect_database()
+        if student in database:
+            pass
+        
+        else:
+            return f"{student} doesn't exit in the database"
+
+        '''
+        Each student will be able to select courses 
+        from his or her Faculty/Departmental/Borrow-course 
+        from a list of COURSES
+        '''
+        pass
+    
+    def selected_courses(self) -> list:
+        
+        '''
+        All Courses offered by an individual student would be selected 
+        and added to their portal
+        '''
+        pass
+
+    #This is method for an add and drop course for individual student in a particular session
     def add_course(self, sub_course) -> None:
         if sub_course.upper() in self.course:
             self.course
@@ -35,8 +49,6 @@ class Faculty(School):
         else:
             self.course.append(sub_course.upper())
             return f'{sub_course.upper()} was Added to your course list.'
- 
-    # Create a "Drop Course" Instance method
 
     '''
         Another way to remove a particular course in a list of courses.
@@ -44,18 +56,12 @@ class Faculty(School):
         self.course.upper().pop(index)
     '''
     
+    #This is method for an add and drop course for individual student in a particular session
     def drop_course(self, del_course) -> None:
         del_course = del_course.upper()
         if del_course in self.course:
             self.course.upper().remove(del_course)
             return f'Course {del_course} has been dropped'
-        
-            '''
-            Another way to remove a particular course in a list of Student Courses.
-            
-            index = self.course.index(del_course.upper())
-            self.course.upper().pop(index)
-            '''
             
         else:
             return f'{del_course} doesn\'t exit in the List of Courses you want to remove'
@@ -109,16 +115,16 @@ class Faculty(School):
     
     def show_remark(self, name='AbdulMumin') -> None:
         if (self.gpa >= 4.50) & (self.gpa <= 5.0):
-            return f'Hello {name}, Your remark: First Class with {self.gpa} points'
+            return f'Hello {name}, Your remark is: First Class with {self.gpa} points'
         
         elif (self.gpa >= 3.50) & (self.gpa <= 4.49):
-            return f'Hello {name}, Your remark: Second Class Upper with {self.gpa} points'
+            return f'Hello {name}, Your remark is: Second Class Upper with {self.gpa} points'
             
         elif (self.gpa >= 2.50) & (self.gpa <= 3.49):
-            return f'Hello {name}, Your remark: Second Class Lower with {self.gpa} points'    
+            return f'Hello {name}, Your remark is: Second Class Lower with {self.gpa} points'    
         
         else:
-            return f'Hello {name}, Your remark: Third Class with {self.gpa} points'
+            return f'Hello {name}, Your remark is: Third Class with {self.gpa} points'
     
     def add_student(self):
 
@@ -166,6 +172,7 @@ class Faculty(School):
             print(f'Your GPA is: "{self.gpa}"')
             
         if self.level < 100:
-            return 
+            return
+         
         else:
             print(f'Your level is: "{self.level}"')
