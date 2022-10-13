@@ -19,7 +19,8 @@ class Faculty(School, Configure):
         self.gpa = 0
         
     def add_stud_course(self, student, database) -> None:
-        super.connect_database()
+        con = Configure()
+        con.connect_database()
         if student in database:
             pass
         
