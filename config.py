@@ -4,7 +4,8 @@ class Configure:
     def connect_database(self):
         self.conn = sqlite3.connect('./database/app.db')
         self.c = self.conn.cursor()
-        self.c.execute("""CREATE TABLE students(
+        self.c.execute("""CREATE TABLE students
+        (
             first text,
             middle text,
             surname text,

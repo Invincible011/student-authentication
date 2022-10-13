@@ -26,7 +26,6 @@ class Faculty(School, Configure):
         else:
             return f"{student} doesn't exit in the database"
 
-
         '''
         Each student will be able to select courses 
         from his or her Faculty/Departmental/Borrow-course 
@@ -63,16 +62,6 @@ class Faculty(School, Configure):
         if del_course in self.course:
             self.course.upper().remove(del_course)
             return f'Course {del_course} has been dropped'
-<<<<<<< HEAD
-=======
-        
-            '''
-            Another way to remove a particular course in a list of Student Courses.
-            
-            index = self.course.index(del_course.upper())
-            self.course.upper().pop(index)
-            '''
->>>>>>> 2375ddf984b0b864539ade3c87da8b951c07bad3
             
         else:
             return f'{del_course} doesn\'t exit in the List of Courses you want to remove'
