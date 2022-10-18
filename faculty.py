@@ -2,7 +2,6 @@ from school import School
 from config import Configure
 import numpy as np
 
-
 class Faculty(School, Configure):
 
     fac = 'Communication Information Science'
@@ -71,7 +70,8 @@ class Faculty(School, Configure):
         return self.course
     
     def calculate_gpa(self, s_name = 'AbdulMumin') -> None:
-
+        #Check through the database to validate an individual student records then authenticate.
+        
         '''
         Before Student would be able to calculate his or her gpa, the student must be in the Database
         
