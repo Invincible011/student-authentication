@@ -28,9 +28,10 @@ class Configure:
             department TEXT NOT NULL,
             matricNo TEXT NOT NULL
             )""")
+        
         self.conn.commit()
-        self.conn.close()
         print("Student Table has been created successfully!.")
+        self.conn.close()
 
     def create_course(self, list):
         if self.connect_database():
@@ -54,7 +55,7 @@ class Configure:
         self.conn.commit()
         self.conn.close()
     
-    #Search by the first name in the existing database
+    #Search by the first, last or other possible query from the existing database
     def query_from_database(self, table, item, search):
         self.connect_database()
         try:
@@ -62,9 +63,19 @@ class Configure:
         
         except:
             self.conn.rollback()
+            
         items = self.c.fetchall()
 
         for item in items:
             print(items)
         self.conn.commit()
         self.conn.close()
+    
+    def delete_table(self, table):
+        with self.connect_database():
+            try:
+                self.c.execute("DROP TABLE IF EXIS {table}")
+                self.conn.commit()
+            
+            except:
+                self.conn.rollback()
