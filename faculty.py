@@ -1,5 +1,5 @@
 from school import School
-from config import Configure
+from setup import Configure
 import numpy as np
 
 class Faculty(School, Configure):
@@ -108,7 +108,7 @@ class Faculty(School, Configure):
                 print()
                 self.total += self.unit_course * self.score_point
                 self.total_unit += self.unit_course
-        print(f'Total points Earned: \"{self.total}\" \nTotal unit course: "{self.total_unit}"')
+        print(f'Total points Earned: \"{self.total}\" \nTotal unit course offered: "{self.total_unit}"')
         self.gpa = round((self.total / self.total_unit), 2)
             
     def show_gpa(self) -> None:
