@@ -3,9 +3,9 @@ from sqlite3 import Error
 
 class Configure:
     
+    conn = None
+    
     def connect_database(self):
-        
-        self.conn = None
         
         try:
             self.conn = sqlite3.connect('./database/app.db')

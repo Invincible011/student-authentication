@@ -1,7 +1,6 @@
 from faculty import Faculty
-from config import Configure
-from sqlite3 import Error
+from setup.Configure import zzz
 
 if __name__ == "__main__":
     fac = Faculty()
-    
+    fac.calculate_gpa()
