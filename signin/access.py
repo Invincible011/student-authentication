@@ -3,17 +3,25 @@ Config.set('graphics', 'width', '480')
 Config.set('graphics', 'height', '853')
 from kivy.app import App
 from kivy.uix.button import Button
+from kivy.uix.label import Label
+from kivy.uix.textinput import TextInput
 from kivy.uix.boxlayout import BoxLayout
 
 '''from kivy.core.window import Window as win
 win.size = (480,853)
 win.pos = .5'''
 
+class ULABEL(Label):
+    pass
+
+class UBTN(Button):
+    pass
+
+class UTEXT(TextInput):
+    pass
 class LoginWindow(BoxLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        
-        
     
     def validate_user(self):
         uname = self.ids.user
@@ -41,7 +49,13 @@ class LoginWindow(BoxLayout):
                 
         else:
             if username == 'admin' and password == 'admin':
+                uname.text = ''
+                pwd.text = ''
+                uname.focus = True
+                
+                #Used for Debugging, To be removed later...
                 info.text = '[color=00FF00][b]Logged in successfully[/b][/color]'
+
             elif username != 'admin' and password != 'admin':
                 uname.focus = True
                 uname.text = ''
@@ -56,11 +70,10 @@ class LoginWindow(BoxLayout):
                     pwd.text = ''
                     info.text = '[color=#FF0000][b]Invalid password[/b][/color]'
         
-    
     def change(self):
         self.ids.signin.background_color = (1, 1, 1, 1 )
         
-    def closeapp(self):
+    def dispose(self):
         return exit()
 
 class SigninApp(App):
