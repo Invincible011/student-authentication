@@ -1,3 +1,9 @@
+<FlatButton@ButtonBehavior+Label>:
+    bold: True
+    font_size: 15
+
+<FlatButton1@ButtonBehavior+Label>:
+    font_size: 12
 <LoginWindow>:
     id: main_win
     orientation: 'vertical'
@@ -40,6 +46,25 @@
         orientation: "vertical"
         padding: main_win.space_x, 10
         BoxLayout:
+            size_hint_y: None
+            height: 40
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            Label:
+                id: markup
+                text: 'Not a Member?'
+                #size_hint_x: .7
+                font_size: 14
+                size_hint_y: None
+                height:40
+                color: (0, 0, 0, .4)
+            FlatButton:
+                id: signup
+                text: 'Sign up'
+                font_size_x: None
+                width: 20
+                bold: True
+                color: (.04, .45, .45, 1)
+        BoxLayout:
             orientation: 'vertical'
             spacing: 10
             size_hint_y: None
@@ -50,7 +75,7 @@
             Label:
                 id: info
                 size_hint_y: None
-                height: 20
+                height: 30
                 markup: True
             TextInput: 
                 id: user
@@ -58,23 +83,29 @@
                 hint_text: "Username..."
                 multiline: False
                 focus: True
+                bold: True
                 on_text_validate: pwd.focus = True
             TextInput: 
                 id: pwd
                 hint_text: "Password..."
                 multiline: False
+                bold: True
                 password: True
                 on_text_validate: root.validate_user()
-        Label:
-            id: sp
+        FlatButton1:
+            id: forget_pwd
             size_hint_y: None
-            height:40
+            height: 30
+            text: 'forget password?'
+            color: (.04, .45, .45, 1)
         Button:
             text: "Sign in"
             size_hint_y: None
             height: 40
-            background_color: (.06, .45, .45, 1)
+            bold: True
+            background_color: (.04, .45, .45, 1)
             background_normal: ''
+            font_size: 14
             on_release: root.validate_user()
         Label:
             id: sp2
