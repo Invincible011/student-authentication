@@ -73,7 +73,7 @@ class LoginWindow(BoxLayout):
     def change(self):
         self.ids.signin.background_color = (1, 1, 1, 1 )
         
-    def closeapp(self):
+    def dispose(self):
         return exit()
 
 class SigninApp(App):
