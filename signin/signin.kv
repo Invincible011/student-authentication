@@ -1,116 +1,116 @@
-<FlatButton@ButtonBehavior+Label>:
-    bold: True
-    font_size: 15
-<FlatButton1@ButtonBehavior+Label>:
-    font_size: 12
-
 <LoginWindow>:
-    id: main_win
-    orientation: 'vertical'
-    spacing: 10
-    space_x: self.size[0]/3
-    canvas.before:
-        Color: 
-            rgba: (1, 1, 1, 1)
-        Rectangle:
-            size: self.size
-            pos: self.pos
     BoxLayout:
-        size_hint_y: None
-        height: 50
+        id: main_win
+        orientation: 'vertical'
+        spacing: 10
+        space_x: self.size[0]/3
         canvas.before:
             Color: 
-                rgba: (.06, .45, .45, 1)
+                rgba: (1, 1, 1, 1)
             Rectangle:
                 size: self.size
                 pos: self.pos
-        ULABEL: 
-            id: t1
-            size_hint_x: 1
-        ULABEL: 
-            id: access_code
-            text: "Sigin in"
-            bold: True
-            size_hint_x: .4
-        ULABEL: 
-            id: t2
-            size_hint_x: .8
-        UBTN:
-            text: "X"
-            bold: True
-            size_hint_x: .2
-            background_color: rgba(.04, .45, .45, 1)
-            background_normal:
-            on_release: root.dispose()
-    BoxLayout:
-        orientation: "vertical"
-        padding: main_win.space_x, 10
         BoxLayout:
             size_hint_y: None
-            height: 40
-            pos_hint: {'center_x': .5, 'center_y': .5}
-
-            ULABEL:
-                id: markup
-                text: 'Not a Member?'
-                #size_hint_x: .7
-                font_size: 14
-                size_hint_y: None
-                height:40
-                color: (0, 0, 0, .4)
-            FlatButton:
-                id: signup
-                text: 'Sign up'
-                font_size_x: None
-                width: 20
+            height: 50
+            canvas.before:
+                Color: 
+                    rgba: (.04, .45, .45, 1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            ULabel: 
+                id: t1
+                size_hint_x: 1
+            ULabel: 
+                id: access_code
+                text: "Sigin in"
                 bold: True
+                size_hint_x: .4
+            ULabel: 
+                id: t2
+                size_hint_x: .8
+            UBtn:
+                text: "X"
+                bold: True
+                size_hint_x: .2
+                background_color: rgba(.04, .45, .45, 1)
+                background_normal:
+                on_release: root.dispose()
+        BoxLayout:
+            orientation: "vertical"
+            padding: main_win.space_x -80 , 10
+            BoxLayout:
+                size_hint_y: None
+                height: 40
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                ULabel:
+                    id: markup
+                    text: 'Not a Member?'
+                    #size_hint_x: .7
+                    font_size: 12
+                    bold: True
+                    size_hint_y: None
+                    height:40
+                    color: (0, 0, 0, .4)
+                FlatButton:
+                    id: signup
+                    text: 'Sign up'
+                    font_size: 14
+                    width: 20
+                    bold: True
+                    color: (.04, .45, .45, 1)
+                    on_release: app.root.current = "signin_scr"
+            ULabel:
+                size_hint_y: None
+                height: 100
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: 10
+                size_hint_y: None
+                height: 200
+                ULabel:
+                    id: greet
+                    size_hint_y: None
+                    height: 80
+                    text: ''
+                    color: (.06, .32, .32, .8)
+                ULabel:
+                    id: info
+                    size_hint_y: None
+                    height: 30
+                    markup: True
+                UText: 
+                    id: user
+                    text: ''
+                    hint_text: "username..."
+                    focus: True
+                    on_text_validate: pwd.focus = True
+                UText: 
+                    id: pwd
+                    hint_text: "password..."
+                    cursor_color: (.04, .45, .45, 1)
+                    multiline: False
+                    bold: True
+                    password: True
+                    on_text_validate: root.validate_user()
+            FlatButton1:
+                id: forget_pwd
+                size_hint_y: None
+                height: 40
+                bold: True
+                text: 'forget password?'
                 color: (.04, .45, .45, 1)
-        BoxLayout:
-            orientation: 'vertical'
-            spacing: 10
-            size_hint_y: None
-            height: 200
-            ULABEL:
+                disabled: True
+            UBtn:
+                text: "Sign in"
                 size_hint_y: None
-                height: 80
-            ULABEL:
-                id: info
-                size_hint_y: None
-                height: 30
-                markup: True
-            UTEXT: 
-                id: user
-                text: ''
-                hint_text: "Username..."
-                multiline: False
-                focus: True
+                height: 40
                 bold: True
-                on_text_validate: pwd.focus = True
-            UTEXT: 
-                id: pwd
-                hint_text: "Password..."
-                multiline: False
-                bold: True
-                password: True
-                on_text_validate: root.validate_user()
-        FlatButton1:
-            id: forget_pwd
-            size_hint_y: None
-            height: 40
-            bold: True
-            text: 'forget password? Reset password!'
-            color: (.04, .45, .45, 1)
-        UBTN:
-            text: "Sign in"
-            size_hint_y: None
-            height: 40
-            bold: True
-            background_color: (.04, .45, .45, 1)
-            background_normal: ''
-            font_size: 14
-            on_release: root.validate_user()
-        ULABEL:
-            id: sp2
-            
-
-    
+                background_color: box_bg_color
+                background_normal: ''
+                font_size: 14
+                on_release: root.validate_user()
+            ULabel:
+                id: sp2
+        Footer

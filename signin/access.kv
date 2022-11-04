@@ -1,0 +1,53 @@
+#:import C kivy.utils.get_color_from_hex
+
+#: set black_color (0, 0, 0, 1)
+#: set white_color (1, 1, 1, 1)
+#: set box_bg_color (.04, .45, .45, 1)
+#: set greet_color (.06, .32, .32, .8)
+#: set msg_quest (0, 0, 0, .4)
+
+<FlatButton@ButtonBehavior+Label>:
+    bold: True
+    font_size: 15
+<FlatButton1@ButtonBehavior+Label>:
+    font_size: 12
+
+
+
+
+
+
+<ULabel@Label>:
+<UBtn@Button>:
+    bold: True
+    background_color: box_bg_color
+    background_normal: ''
+<UText@TextInput>:
+    multiline: False
+    cursor_color: box_bg_color
+    bold: True
+    size_hint_y: None
+    height: 30
+    halign: 'center'
+    
+<Footer@BoxLayout>:
+    size_hint_y: None
+    height: 50
+    canvas.before:
+        Color: 
+            rgba: box_bg_color
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    ULabel: 
+        id: t1
+        font_size: 11
+        text: "© 2022. University of Ilorin, Ilorin. All right reserved | Developed by Fandroid Tech."
+        color: white_color
+        bold: True
+
+ScreenManager:
+    LoginWindow:
+        name: "login_scr"
+    SignUpWindow:
+        name: "signin_scr"

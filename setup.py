@@ -49,6 +49,8 @@ class Configure:
             
             except:
                 self.conn.rollback()
+                
+                #sqlalchelmy
 
     def insert_stud(self, first, middle, last, department, matric):
         with self.connect_database():
