@@ -3,3 +3,5 @@ __pycache__
 database
 env
 test.py
+del.kv
+test.py
