@@ -45,26 +45,16 @@
                 size_hint_y: None
                 height: 40
                 pos_hint: {'center_x': .5, 'center_y': .5}
-                ULabel:
+                ULabTop:
                     id: markup
                     text: 'Not a Member?'
-                    #size_hint_x: .7
-                    font_size: 12
-                    bold: True
-                    size_hint_y: None
-                    height:40
-                    color: (0, 0, 0, .4)
                 FlatButton:
                     id: signup
                     text: 'Sign up'
-                    font_size: 14
-                    width: 20
-                    bold: True
-                    color: (.04, .45, .45, 1)
-                    on_release: app.root.current = "signin_scr"
+                    on_release: app.root.current = "signup_scr"
             ULabel:
                 size_hint_y: None
-                height: 100
+                height: 170
             BoxLayout:
                 orientation: 'vertical'
                 spacing: 10
@@ -75,12 +65,14 @@
                     size_hint_y: None
                     height: 80
                     text: ''
-                    color: (.06, .32, .32, .8)
+                    color: greet_color
                 ULabel:
                     id: info
                     size_hint_y: None
                     height: 30
                     markup: True
+                    background_color: white_color
+                    background_normal: ""
                 UText: 
                     id: user
                     text: ''
@@ -90,18 +82,11 @@
                 UText: 
                     id: pwd
                     hint_text: "password..."
-                    cursor_color: (.04, .45, .45, 1)
-                    multiline: False
-                    bold: True
                     password: True
                     on_text_validate: root.validate_user()
             FlatButton1:
                 id: forget_pwd
-                size_hint_y: None
-                height: 40
-                bold: True
                 text: 'forget password?'
-                color: (.04, .45, .45, 1)
                 disabled: True
             UBtn:
                 text: "Sign in"

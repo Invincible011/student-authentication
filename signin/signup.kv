@@ -10,7 +10,7 @@
             Rectangle:
                 size: self.size
                 pos: self.pos
-                source: 'images/entrance.jpg'
+                source: 'images/lib.jpg'
         BoxLayout:
             size_hint_y: None
             height: 50
@@ -43,22 +43,12 @@
                 size_hint_y: None
                 height: 40
                 pos_hint: {'center_x': .5, 'center_y': .5}
-                ULabel:
+                ULabTop:
                     id: markup
                     text: 'Already a User?'
-                    #size_hint_x: .7
-                    font_size: 12
-                    bold: True
-                    size_hint_y: None
-                    height:40
-                    color: msg_quest
                 FlatButton:
                     id: signin
                     text: 'Sign In'
-                    font_size: 14
-                    width: 20
-                    bold: True
-                    color: box_bg_color
                     on_release: app.root.current = "login_scr"
             BoxLayout:
                 orientation: 'vertical'
@@ -74,7 +64,7 @@
                 ULabel:
                     id: info
                     size_hint_y: None
-                    height: 30
+                    height: 60
                     markup: True
                 BoxLayout:
                     orientation: "vertical"
@@ -128,8 +118,8 @@
                     size: self.size
                     pos: self.pos
             ULabel: 
-                id: t1
+                id: footer
                 font_size: 11
-                text: ''
+                text: "© 2022. University of Ilorin, Ilorin. All right reserved | Developed by Fandroid Tech."
                 color: white_color
                 bold: True

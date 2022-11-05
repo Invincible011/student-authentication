@@ -96,6 +96,10 @@ class LoginWindow(Screen):
 class SignUpWindow(Screen):
     def _initialise(self):
         time = datetime.now()
+        #date = time.strftime("%Y")
+        #print(f"Am going to ROOT WIDGET:, and It's {self.parent.get_screen('login_scr').ids.t1.text}")
+        #date1 = self.parent.get_screen('signup_scr').ids.footer
+        #date1.text = "©" + date + ". University of Ilorin, Ilorin. All right reserved | Developed by Fandroid Tech."
         time = int(time.strftime("%H"))
         
         if time < 12:
