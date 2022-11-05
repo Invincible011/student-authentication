@@ -70,14 +70,15 @@ class LoginWindow(Screen):
                 pwd.text = ''
                 uname.focus = True 
                 #Used for Debugging, To be removed later...
-                info.text = '[color=00FF00][b]Logged in successfully[/b][/color]'
+                info.text = '[color=#00FF00][b]Logged in successfully[/b][/color]'
                 show_pwd.disabled = True
+                self.parent.current = 'signup_scr'
                 
             elif username != 'admin' and password != 'admin':
                 uname.focus = True
                 uname.text = ''
                 pwd.text = ''
-                info.text = '[color=FF0000][b]Invalid username and/or password[/b][/color]'
+                info.text = '[color=#FF0000][b]Invalid username and/or password[/b][/color]'
                 show_pwd.disabled = True
             else:
                 if username != 'admin':

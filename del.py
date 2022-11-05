@@ -12,3 +12,8 @@ class DelApp(App):
 if __name__ == "__main__":
     si = DelApp()
     si.run()
+    
+    
+    '''from kivy.core.window import Window as win
+win.size = (480,853)
+win.pos = .5'''

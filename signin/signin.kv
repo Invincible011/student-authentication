@@ -1,5 +1,5 @@
 <LoginWindow>:
-    id: login_win
+    name: "login_scr"
     BoxLayout:
         id: main_win
         orientation: 'vertical'
@@ -51,7 +51,9 @@
                 FlatButton:
                     id: signup
                     text: 'Sign up'
-                    on_release: app.root.current = "signup_scr"
+                    on_release:
+                        app.root.current = "signup_scr"
+                        root.manager.transition.direction = "left" 
             ULabel:
                 size_hint_y: None
                 height: 170
@@ -71,8 +73,6 @@
                     size_hint_y: None
                     height: 30
                     markup: True
-                    background_color: white_color
-                    background_normal: ""
                 UText: 
                     id: user
                     text: ''
@@ -96,7 +96,8 @@
                 background_color: box_bg_color
                 background_normal: ''
                 font_size: 14
-                on_release: root.validate_user()
+                on_release: 
+                    root.validate_user()
             ULabel:
                 id: sp2
         BoxLayout:

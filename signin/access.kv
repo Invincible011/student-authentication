@@ -1,4 +1,4 @@
-#:import C kivy.utils.get_color_from_hex
+#:import hex kivy.utils.get_color_from_hex
 
 #: set black_color (0, 0, 0, 1)
 #: set white_color (1, 1, 1, 1)
@@ -16,8 +16,8 @@
     size_hint_y: None
     height: 40
     bold: True
-    color: box_bg_color
-<ULabel@Label>
+    color: hex('#00FF00')
+<ULabel@Label>:
 <ULabTop@Label>:
     font_size: 12
     bold: True
@@ -55,6 +55,4 @@
 
 ScreenManager:
     LoginWindow:
-        name: "login_scr"
     SignUpWindow:
-        name: "signup_scr"

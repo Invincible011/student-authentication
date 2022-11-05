@@ -1,4 +1,5 @@
 <SignUpWindow>:
+    name: "signup_scr"
     BoxLayout:
         id: main_win
         orientation: 'vertical'
@@ -49,7 +50,9 @@
                 FlatButton:
                     id: signin
                     text: 'Sign In'
-                    on_release: app.root.current = "login_scr"
+                    on_release: 
+                        app.root.current = "login_scr" 
+                        root.manager.transition.direction = "right"
             BoxLayout:
                 orientation: 'vertical'
                 spacing: 10

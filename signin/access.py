@@ -4,11 +4,10 @@ Config.set('graphics', 'height', '853')
 from kivy.app import App
 from kivy.lang import Builder
 from screen import *
+'''import sys
+sys.path.append('/python codes/STUDENT_AUTHENTICATION/student')'''
 
-'''from kivy.core.window import Window as win
-win.size = (480,853)
-win.pos = .5'''
-
+#Builder.load_file('student/studdash.kv')
 Builder.load_file('signin.kv')
 Builder.load_file('signup.kv')
 kv = Builder.load_file('access.kv')
