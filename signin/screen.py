@@ -10,6 +10,10 @@ win.pos = .5
 class LoginWindow(Screen):
     def _initialise(self):
         time = datetime.now()
+        date = time.strftime("%Y")
+        #print(f"Am going to ROOT WIDGET:, and It's {self.parent.get_screen('login_scr').ids.t1.text}")
+        date1 = self.parent.get_screen('login_scr').ids.t1
+        date1.text = "©" + date + ". University of Ilorin, Ilorin. All right reserved | Developed by Fandroid Tech."
         time = int(time.strftime("%H"))
         
         if time < 12:
@@ -117,7 +121,7 @@ class SignUpWindow(Screen):
         #print("IDS: ", self.ids)
           
     def validate_user(self):
-        op = self.parent.current.ids.op_header
-        op.text = "Sign Up"
+        pass
+
     def dispose(self):
         return exit()

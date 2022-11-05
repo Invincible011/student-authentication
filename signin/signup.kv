@@ -10,6 +10,7 @@
             Rectangle:
                 size: self.size
                 pos: self.pos
+                source: 'images/entrance.jpg'
         BoxLayout:
             size_hint_y: None
             height: 50
@@ -20,7 +21,6 @@
                     size: self.size
                     pos: self.pos
             ULabel: 
-                id: t1
                 size_hint_x: 1
             ULabel: 
                 text: "Sigin Up"
@@ -118,4 +118,18 @@
                 #on_release: root.validate_user()
             ULabel:
                 id: sp2
-        Footer:
+        BoxLayout:
+            size_hint_y: None
+            height: 50
+            canvas.before:
+                Color: 
+                    rgba: box_bg_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            ULabel: 
+                id: t1
+                font_size: 11
+                text: ''
+                color: white_color
+                bold: True
