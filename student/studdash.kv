@@ -1,7 +1,8 @@
-MainDashboard:
-
-
+#: import win kivy.core.window.Window
+#: import Factory kivy.factory.Factory
 #:import hex kivy.utils.get_color_from_hex
+
+
 #: set black_color (0, 0, 0, 1)
 #: set white_color (1, 1, 1, 1)
 #: set gray_color (1, 1, 1, .3)
@@ -9,6 +10,31 @@ MainDashboard:
 #: set box_bg_color (.04, .45, .45, 1)
 #: set greet_color (.06, 50, 50, .8)
 #: set msg_quest (0, 0, 0, .4)
+#: set light_white (1, 1, 1, .7)
+#: set light_more_white (1, 1, 1, .8)
+
+<Dropdown>:
+    orientation: 'vertical'
+    font_size: 10
+    color: light_more_white
+    
+
+<Toggle@ToggleButton>:
+    font_size: 11
+    size_hint_y: None
+    height: 40 
+    bold: True
+    color: (1, 1, 1, .8)
+    background_color: box_bg_color
+    background_normal: ''
+
+<SpChildren@SpinnerOption>:
+    font_size: 10
+    size_hint_y: None
+    height: 30
+    color: (1, 1, 1, .6)
+    background_color: black_color
+    background_normal: ''
 
 <FlatButton@ButtonBehavior+Label>:
     bold: True
@@ -26,13 +52,22 @@ MainDashboard:
     background_color: white_color
     bold: True
 
+<Toggleagdfgdf@ToggleButton+ButtonBehavior>:
+    font_size: 10
+    size_hint_y: None
+    height: 30
+    bold: True
+    halign: 'left'
+    background_color: box_bg_color
+    background_normal: ''
+
 <ULabelFooter@Label>:
     font_size: 11
     bold: True
     color: white_color
     text: "© 2022. University of Ilorin, Ilorin. All right reserved | Developed by Fandroid Tech."
 
-<MainDashboard@BoxLayout>:
+<MainDashboard>:
     BoxLayout:
         orientation: 'vertical'
         canvas.before:
@@ -73,12 +108,13 @@ MainDashboard:
             FlatButton:
                 text: "Logout"
                 size_hint_x: .4
+                on_release: win.close()
             Label:
                 id: log_time
                 size_hint_x: .6
-                text: "Today: Saturday, November, 2022."
-                font_size: 13
-                bold:True
+                text: ''
+                font_size: 12
+                bold: True
         BoxLayout:
             id: login_details
             size_hint_y: None
@@ -91,19 +127,20 @@ MainDashboard:
                     pos: self.pos
             FlatButton1:
                 id: togglemenu
-                font_size: 16
+                font_size: 13
                 text: "Menu"
                 color: box_bg_color
                 size_hint_x: .22
                 background_color: white_color
+                on_release: root.togglemenutab()
             HeadLabel:
                 id: togglemenu
-                font_size: 16
+                font_size: 12
                 text: "Welcome:"
                 size_hint_x: .5
             HeadLabel:
                 id: togglemenu
-                font_size: 16
+                font_size: 12
                 text: "Session:"
                 size_hint_x: .3
         BoxLayout:
@@ -111,15 +148,62 @@ MainDashboard:
             BoxLayout:
                 id: menu
                 orientation: "vertical"
-                size_hint_x: .3
+                size_hint_x: None
+                width: 140
+                spacing: 1
                 canvas.before:
                     Color: 
                         rgba: box_bg_color
                     Rectangle:
                         size: self.size
                         pos: self.pos
-            ScreenManager:
-                PersonalDetails:
+                NewBox:
+                    orientation: 'vertical'
+                    Toggle:
+                        id: p_setup
+                        text: "PERSONAL SETUP"
+                        on_state: 
+                            self.parent.insert_widget(Factory.Dropdown(['Main Menu', 'Personal Details', 'Logout']), self) if self.state != "normal" else self.parent.remove_inserted_widget()
+                        group: 'user_navs'
+                    Toggle:
+                        id: p_setup
+                        text: "MAIN MENU"
+                        halign: 'left'
+                        on_state: 
+                            self.parent.insert_widget(Factory.Dropdown(['Main Menu', 'Personal Details', 'Logout']), self) if self.state != "normal" else self.parent.remove_inserted_widget()
+                        group: 'user_navs'
+                    Toggle:
+                        id: p_setup
+                        text: "FORMS AND PAYMENTS"
+                        on_state: 
+                            self.parent.insert_widget(Factory.Dropdown(['Main Menu', 'Personal Details', 'Logout']), self) if self.state != "normal" else self.parent.remove_inserted_widget()
+                        group: 'user_navs'
+                    Toggle:
+                        id: p_setup
+                        text: "e-VOTING"
+                        on_state: 
+                            self.parent.insert_widget(Factory.Dropdown(['Main Menu', 'Personal Details', 'Logout']), self) if self.state != "normal" else self.parent.remove_inserted_widget()
+                        group: 'user_navs'
+                    Toggle:
+                        id: p_setup
+                        text: "LECTURERS ASSESSMENT"
+                        on_state: 
+                            self.parent.insert_widget(Factory.Dropdown(['Main Menu', 'Personal Details', 'Logout']), self) if self.state != "normal" else self.parent.remove_inserted_widget()
+                        group: 'user_navs'
+                    Toggle:
+                        id: p_setup
+                        text: "GRADUATION STATUS"
+                        on_state: 
+                            self.parent.insert_widget(Factory.Dropdown(['Main Menu', 'Personal Details', 'Logout']), self) if self.state != "normal" else self.parent.remove_inserted_widget()
+                        group: 'user_navs'
+                    Label:
+                        id: jf
+            BoxLayout:
+                id: p
+                orientation: "vertical"
+                ScreenManager:
+                    id: scr_mngr
+                    PersonalDetails:
         BoxLayout:
             id: footer
             size_hint_y: None
