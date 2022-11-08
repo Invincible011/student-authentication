@@ -163,41 +163,41 @@
                         id: p_setup
                         text: "PERSONAL SETUP"
                         on_state: 
-                            self.parent.insert_widget(Factory.Dropdown(['Main Menu', 'Personal Details', 'Logout']), self) if self.state != "normal" else self.parent.remove_inserted_widget()
+                            self.parent.insert_widget(Factory.Dropdown(['Main Menu', 'Personal Details', 'Password Management', 'Logout']), self) if self.state != "normal" else self.parent.remove_inserted_widget()
                         group: 'user_navs'
                     Toggle:
                         id: p_setup
                         text: "MAIN MENU"
                         halign: 'left'
                         on_state: 
-                            self.parent.insert_widget(Factory.Dropdown(['Main Menu', 'Personal Details', 'Logout']), self) if self.state != "normal" else self.parent.remove_inserted_widget()
+                            self.parent.insert_widget(Factory.Dropdown(['Procedures for Registration', 'Current Charges', 'School Charges Payment', 'Course Registration', 'Print Completed Course Form', 'Print Payment Receipts', 'Print Results', 'Revalidation', 'Print Admission Clearance', 'Admission Screening Result']), self) if self.state != "normal" else self.parent.remove_inserted_widget()
                         group: 'user_navs'
                     Toggle:
                         id: p_setup
                         text: "FORMS AND PAYMENTS"
                         on_state: 
-                            self.parent.insert_widget(Factory.Dropdown(['Main Menu', 'Personal Details', 'Logout']), self) if self.state != "normal" else self.parent.remove_inserted_widget()
+                            self.parent.insert_widget(Factory.Dropdown(['Add and Drop', 'Outstanding Payment', 'Add and Drop Form', 'Request for Credit Unit', 'Payment Registration (Returning Student)']), self) if self.state != "normal" else self.parent.remove_inserted_widget()
                         group: 'user_navs'
                     Toggle:
                         id: p_setup
                         text: "e-VOTING"
                         on_state: 
-                            self.parent.insert_widget(Factory.Dropdown(['Main Menu', 'Personal Details', 'Logout']), self) if self.state != "normal" else self.parent.remove_inserted_widget()
+                            self.parent.insert_widget(Factory.Dropdown(['e-Voting']), self) if self.state != "normal" else self.parent.remove_inserted_widget()
                         group: 'user_navs'
                     Toggle:
                         id: p_setup
                         text: "LECTURERS ASSESSMENT"
                         on_state: 
-                            self.parent.insert_widget(Factory.Dropdown(['Main Menu', 'Personal Details', 'Logout']), self) if self.state != "normal" else self.parent.remove_inserted_widget()
+                            self.parent.insert_widget(Factory.Dropdown(['Lecturers Assessment']), self) if self.state != "normal" else self.parent.remove_inserted_widget()
                         group: 'user_navs'
                     Toggle:
                         id: p_setup
                         text: "GRADUATION STATUS"
                         on_state: 
-                            self.parent.insert_widget(Factory.Dropdown(['Main Menu', 'Personal Details', 'Logout']), self) if self.state != "normal" else self.parent.remove_inserted_widget()
+                            self.parent.insert_widget(Factory.Dropdown(['Confirm Graduation Status']), self) if self.state != "normal" else self.parent.remove_inserted_widget()
                         group: 'user_navs'
                     Label:
-                        id: jf
+                        id: quick_solve
             BoxLayout:
                 id: p
                 orientation: "vertical"
