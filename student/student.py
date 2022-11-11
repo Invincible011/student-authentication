@@ -6,12 +6,12 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.app import App
 from kivy.lang import Builder
-from stud_operator import *
+from stud_operator import PersonalDetails
 from kivy.core.window import Window as win
 from kivy.properties import ListProperty, ObjectProperty
 
-Builder.load_file('personal_details.kv')
-main_win = Builder.load_file('studdash.kv')
+Builder.load_file('student/personal_details.kv')
+main_win = Builder.load_file('student/studdash.kv')
 
 
 class Dropdown(BoxLayout):

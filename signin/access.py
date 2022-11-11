@@ -7,9 +7,7 @@ from screen import *
 
 
 #Builder.load_file('student/studdash.kv')
-Builder.load_file('signin.kv')
-Builder.load_file('signup.kv')
-kv = Builder.load_file('access.kv')
+kv = Builder.load_file('signin/access.kv')
 
 
 class AuthenticationApp(App):

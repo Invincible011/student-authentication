@@ -1,11 +1,14 @@
 from kivy.uix.screenmanager import Screen
 from datetime import datetime
+from kivy.lang import Builder
 
 '''
 from kivy.core.window import Window as win
 win.size = (480,853)
 win.pos = .5
 '''
+Builder.load_file('signin/signin.kv')
+Builder.load_file('signin/signup.kv')
 
 class LoginWindow(Screen):
     def _initialise(self):

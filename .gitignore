@@ -1,7 +1,8 @@
-__pycache__
+*__pycache__
+*__init__.py
 .vscode
 database
-env
+venv
 test.py
 del.kv
 del.py
