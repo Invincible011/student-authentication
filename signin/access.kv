@@ -5,27 +5,42 @@
 #: set box_bg_color (.04, .45, .45, 1)
 #: set greet_color (.06, 50, 50, .8)
 #: set msg_quest (0, 0, 0, .4)
+#: set border_radius [(20, 20), (20, 20), (20, 20), (20, 20)]
 
 <FlatButton@ButtonBehavior+Label>:
     bold: True
     font_size: 
-    font_size: 14
     width: 20
     color: box_bg_color
+
+<RoundButton@Button>:
+    bold: True
+    background_color: (0, 0, 0, 0)
+    background_normal: ""
+    canvas.before:
+        Color: 
+            rgba: box_bg_color
+        RoundedRectangle: 
+            size: self.size
+            pos: self.pos
+            radius: 
+
 <FlatButton1@ButtonBehavior+Label>:
     size_hint_y: None
     height: 40
     bold: True
     color: hex('#00FF00')
-<ULabel@Label>:
+
 <ULabTop@Label>:
     font_size: 12
     bold: True
     color: msg_quest
+
 <UBtn@Button>:
     bold: True
     background_color: box_bg_color
     background_normal: ''
+
 <UText@TextInput>:
     multiline: False
     cursor_color: msg_quest
@@ -37,22 +52,7 @@
     font_size: 13
     halign: 'center'
 
-<Footer@BoxLayout>:
-    size_hint_y: None
-    height: 50
-    canvas.before:
-        Color: 
-            rgba: box_bg_color
-        Rectangle:
-            size: self.size
-            pos: self.pos
-    ULabel: 
-        id: t1
-        font_size: 11
-        text: ''
-        color: white_color
-        bold: True
 
 ScreenManager:
+    id: scrn_mngr
     LoginWindow:
-    SignUpWindow:

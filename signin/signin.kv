@@ -21,14 +21,14 @@
                 Rectangle:
                     size: self.size
                     pos: self.pos
-            ULabel: 
+            Label: 
                 size_hint_x: 1
-            ULabel: 
+            Label: 
                 id: access_code
                 text: "Sigin in"
                 bold: True
                 size_hint_x: .4
-            ULabel: 
+            Label: 
                 id: t2
                 size_hint_x: .8
             UBtn:
@@ -36,7 +36,7 @@
                 bold: True
                 size_hint_x: .2
                 background_color: rgba(.04, .45, .45, 1)
-                background_normal:
+                background_normal: ""
                 on_release: root.dispose()
         BoxLayout:
             orientation: "vertical"
@@ -45,16 +45,7 @@
                 size_hint_y: None
                 height: 40
                 pos_hint: {'center_x': .5, 'center_y': .5}
-                ULabTop:
-                    id: markup
-                    text: 'Not a Member?'
-                FlatButton:
-                    id: signup
-                    text: 'Sign up'
-                    on_release:
-                        app.root.current = "signup_scr"
-                        root.manager.transition.direction = "left" 
-            ULabel:
+            Label:
                 size_hint_y: None
                 height: 170
             BoxLayout:
@@ -62,13 +53,13 @@
                 spacing: 10
                 size_hint_y: None
                 height: 200
-                ULabel:
+                Label:
                     id: greet
                     size_hint_y: None
                     height: 80
                     text: ''
                     color: greet_color
-                ULabel:
+                Label:
                     id: info
                     size_hint_y: None
                     height: 30
@@ -88,17 +79,16 @@
                 id: forget_pwd
                 text: 'forget password?'
                 disabled: True
-            UBtn:
+            RoundButton:
                 text: "Sign in"
                 size_hint_y: None
                 height: 40
-                bold: True
-                background_color: box_bg_color
+                back_color: box_bg_color
                 background_normal: ''
                 font_size: 14
                 on_release: 
                     root.validate_user()
-            ULabel:
+            Label:
                 id: sp2
         BoxLayout:
             size_hint_y: None
@@ -109,7 +99,7 @@
                 Rectangle:
                     size: self.size
                     pos: self.pos
-            ULabel: 
+            Label: 
                 id: t1
                 font_size: 11
                 text: ''

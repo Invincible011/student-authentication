@@ -1,31 +1,32 @@
 from kivy.config import Config
+
 Config.set('graphics', 'width', '480')
 Config.set('graphics', 'height', '853')
 from datetime import datetime
-from kivy.uix.boxlayout import BoxLayout 
-from kivy.uix.button import Button
-from kivy.app import App
-from kivy.lang import Builder
-from stud_operator import PersonalDetails
+
 from kivy.core.window import Window as win
+from kivy.lang import Builder
 from kivy.properties import ListProperty, ObjectProperty
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.button import Button
+from student.stud_operator import PersonalDetails
 
 Builder.load_file('student/personal_details.kv')
 main_win = Builder.load_file('student/studdash.kv')
 
 
 class Dropdown(BoxLayout):
-    button_list = ListProperty(None)
+    button_list = ListProperty()
     
-    def __init__(self, button_list, **kwargs):
+    def __init__(self, button_list, scrn_mngr, **kwargs):
         super().__init__(**kwargs)
         self.button_list = button_list     
-    
+        self.mngr = scrn_mngr
     def on_button_list(self, object, values):
         
-        for i in values:
-            self.add_widget(Button(text=i, font_size= 9, background_color=(0,0,0,.2), background_normal='', bold=True))
-
+        for name, fnc in values:
+            self.add_widget(Button(text=name, font_size= 9, on_press = fnc, background_color=(0,0,0,.2), background_normal='', bold=True))
+            
 
 class NewBox(BoxLayout):
     dropdown = ObjectProperty(None)
@@ -78,13 +79,8 @@ class MainDashboard(BoxLayout):
         year = time.strftime("%Y")
         
         log.text = f"Today: {week}, {month}, {year}."
+    
+    def close(self):
+        self.parent.parent.current = "scr_si"
+        self.parent.parent.transition.direction = "right"
         
-        
-class StudentApp(App):
-    def build(self):
-        return MainDashboard()
-        
-        
-if __name__ == "__main__":
-    st = StudentApp()
-    st.run()
