@@ -1,8 +1,9 @@
+import numpy as np
 from school import School
 from setup import Configure
-import numpy as np
 
-class Faculty(School, Configure):
+
+class Faculty(Configure, School):
 
     fac = 'Communication Information Science'
     dept = 'Computer-Science'
@@ -80,7 +81,7 @@ class Faculty(School, Configure):
         
         flag = True
         
-        if flag == True:
+        if flag:
             self.score_point = 0
             self.total = 0
             self.total_unit = 0
@@ -111,7 +112,17 @@ class Faculty(School, Configure):
         print(f'Total points Earned: \"{self.total}\" \nTotal unit course offered: "{self.total_unit}"')
         self.gpa = round((self.total / self.total_unit), 2)
             
-    def show_gpa(self) -> None:
+    def show_gpa(self, session) -> None:
+        
+        # This will accept 'session' as a parameter. It could be Default Parameter until the student change it
+        # Using the time year format to set it as a DEFAULT PARAMETER
+        
+        '''
+        To show student gpa, access the database for the current student.
+        Make sure the session to calculate GPA for, for an individual student is less than his/her current session
+        year and the stuednt session is greater than the session to be calculated for as well.
+        '''
+        
         return f'Your CGPA is: {self.gpa}'
     
     def show_remark(self, name='AbdulMumin') -> None:
@@ -129,6 +140,7 @@ class Faculty(School, Configure):
     
     def add_student(self):
 
+        # This function only add new student to the database.
         '''
         Check through the database if the Student exist, 
         If True:
@@ -137,6 +149,7 @@ class Faculty(School, Configure):
             return "add student to the database"
         '''
         pass
+    
     
     def del_student(self):
         

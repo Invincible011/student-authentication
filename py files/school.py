@@ -5,6 +5,7 @@ class School_t:
 
 class School(School_t):
     
+    # Class variables
     s_type = 'University'
     name = 'University of Ilorin'
     addr = 'Ilorin, Kwara-state'

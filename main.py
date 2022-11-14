@@ -22,7 +22,6 @@ class MainApp(App):
         self.root = MainWindow()
         
     
-    
 if __name__ == "__main__":
     ma = MainApp()
     ma.run()

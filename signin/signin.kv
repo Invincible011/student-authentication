@@ -11,7 +11,7 @@
             Rectangle:
                 size: self.size
                 pos: self.pos
-                source: 'images/building.jpg'
+                source: 'images/class.jpg'
         BoxLayout:
             size_hint_y: None
             height: 50
@@ -47,7 +47,13 @@
                 pos_hint: {'center_x': .5, 'center_y': .5}
             Label:
                 size_hint_y: None
-                height: 170
+                height: 100
+            Label:
+                size_hint_y: None
+                height: 30
+                text: '"Use your matric number as your username"'
+                color: (0, 0, 1, .7)
+                bold: True
             BoxLayout:
                 orientation: 'vertical'
                 spacing: 10
