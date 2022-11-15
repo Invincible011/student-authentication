@@ -1,0 +1,62 @@
+#:import hex kivy.utils.get_color_from_hex
+
+#: set black_color (0, 0, 0, 1)
+#: set white_color (1, 1, 1, 1)
+#: set box_bg_color (.04, .45, .45, 1)
+#: set greet_color (.06, 50, 50, .8)
+#: set msg_quest (0, 0, 0, .4)
+#: set border_radius [(20, 20), (20, 20), (20, 20), (20, 20)]
+#: set light_white (1, 1, 1, .7)
+#: set light_more_white (1, 1, 1, .8)
+#: set normal_green hex('#00FF00')
+
+
+<FlatButton@ButtonBehavior+Label>:
+    bold: True
+    font_size: 
+    width: 20
+    color: box_bg_color
+
+<RoundButton@Button>:
+    bold: True
+    background_color: (0, 0, 0, 0)
+    background_normal: ""
+    canvas.before:
+        Color: 
+            rgba: box_bg_color
+        RoundedRectangle: 
+            size: self.size
+            pos: self.pos
+            radius: 
+
+<FlatButton1@ButtonBehavior+Label>:
+    size_hint_y: None
+    height: 40
+    bold: True
+    color: hex('#00FF00')
+
+<ULabTop@Label>:
+    font_size: 12
+    bold: True
+    color: msg_quest
+
+<UBtn@Button>:
+    bold: True
+    background_color: box_bg_color
+    background_normal: ''
+
+<UText@TextInput>:
+    multiline: False
+    cursor_color: msg_quest
+    size_hint_y: None
+    height: 30
+    color: greet_color
+    hint_text_color: msg_quest
+    background_color: white_color
+    font_size: 13
+    halign: 'center'
+
+
+ScreenManager:
+    id: scrn_mngr
+    LoginWindow:

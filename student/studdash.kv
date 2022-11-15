@@ -1,0 +1,161 @@
+<MainDashboard>:
+    BoxLayout:
+        orientation: 'vertical'
+        canvas.before:
+            Color:
+                rgba: gray_color
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        BoxLayout:
+            size_hint_y: None
+            height: 100
+            canvas.after:
+                Color:
+                    rgba: white_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+                    source: 'images/unilorin_bg.jpeg'
+        BoxLayout:
+            size_hint_y: None
+            height: 5
+            canvas.after:
+                Color:
+                    rgba: light_gray_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+        BoxLayout:
+            id: header
+            size_hint_y: None
+            height: 40
+            canvas.before:
+                Color: 
+                    rgba: box_bg_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            FlatButton:
+                text: "Logout"
+                size_hint_x: .4
+                on_release: root.close()
+                #######Do something here
+            Label:
+                id: log_time
+                size_hint_x: .6
+                text: ''
+                font_size: 12
+                bold: True
+        BoxLayout:
+            id: login_details
+            size_hint_y: None
+            height: 30
+            canvas.before:
+                Color: 
+                    rgba: white_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            FlatButton1:
+                id: togglemenu
+                font_size: 13
+                text: "Menu"
+                color: box_bg_color
+                size_hint_x: .22
+                background_color: white_color
+                on_release: root.togglemenutab()
+            HeadLabel:
+                id: togglemenu
+                font_size: 12
+                text: "Welcome:"
+                size_hint_x: .5
+            HeadLabel:
+                id: togglemenu
+                font_size: 12
+                text: "Session:"
+                size_hint_x: .3
+        BoxLayout:
+            padding: 0, 5, 0, 10
+            BoxLayout:
+                id: menu
+                orientation: "vertical"
+                size_hint_x: None
+                width: 140
+                spacing: 1
+                canvas.before:
+                    Color: 
+                        rgba: box_bg_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                NewBox:
+                    orientation: 'vertical'
+                    Toggle:
+                        id: p_setup
+                        text: "PERSONAL SETUP"
+                        on_state: 
+                            self.parent.insert_widget(Factory.Dropdown([('Main Menu', lambda x: self.parent.p_main_menu()), ('Personal Details', lambda x: self.parent.details()),\
+                            ('Password Management', lambda x: self.parent.change_password()), ('Logout', lambda x: self.parent.logout())], scr_mngr), self)\
+                            if self.state != "normal" else self.parent.remove_inserted_widget()
+                        group: 'user_navs'
+                    Toggle:
+                        id: main_menu
+                        text: "MAIN MENU"
+                        halign: 'left'
+                        on_state: 
+                            self.parent.insert_widget(Factory.Dropdown([('Procedures for Registration', lambda x:print("Hello Main")), ('Current Charges', lambda x:print("Hello Main")), ('School Charges Payment', lambda x:print("Hello Main")),\
+                            ('Course Registration', lambda x:print("Hello Main")), ('Print Completed Course Form', lambda x:print("Hello Main")),\
+                            ('Print Payment Receipts', lambda x:print("Hello Main")), ('Print Results', lambda x:print("Hello Main")), ('Revalidation', lambda x:print("Hello Main")),\ 
+                            ('Print Admission Clearance', lambda x:print("Hello Main")), ('Admission Screening Result', lambda x:print("Hello Main"))], scr_mngr), self)\
+                            if self.state != "normal" else self.parent.remove_inserted_widget()
+                        group: 'user_navs'
+                    Toggle:
+                        id: forms
+                        text: "FORMS AND PAYMENTS"
+                        on_state: 
+                            self.parent.insert_widget(Factory.Dropdown([('Add and Drop', lambda x:print("Hello Main")), ('Outstanding Payment', lambda x:print("Hello Main")), ('Add and Drop Form', lambda x:print("Hello Main")),\
+                            ('Request for Credit Unit', lambda x:print("Hello Main")), ('Payment Registration (Returning Student)', lambda x:print("Hello Main"))], scr_mngr), self)\
+                            if self.state != "normal" else self.parent.remove_inserted_widget()
+                        group: 'user_navs'
+                    Toggle:
+                        id: e-voting
+                        text: "e-VOTING"
+                        on_state: 
+                            self.parent.insert_widget(Factory.Dropdown([('e-Voting', lambda x:print("Hello Main"))], scr_mngr), self)\
+                            if self.state != "normal" else self.parent.remove_inserted_widget()
+                        group: 'user_navs'
+                    Toggle:
+                        id: assess
+                        text: "LECTURERS ASSESSMENT"
+                        on_state: 
+                            self.parent.insert_widget(Factory.Dropdown([('Lecturers Assessment', lambda x:print("Hello Main"))], scr_mngr), self)\
+                            if self.state != "normal" else self.parent.remove_inserted_widget()
+                        group: 'user_navs'
+                    Toggle:
+                        id: grad_status
+                        text: "GRADUATION STATUS"
+                        on_state: 
+                            self.parent.insert_widget(Factory.Dropdown([('Confirm Graduation Status', lambda x: print("Hello Graduate Status"))], scr_mngr), self)\
+                            if self.state != "normal" else self.parent.remove_inserted_widget()
+                        group: 'user_navs'
+                    Label:
+                        id: quick_solve
+            BoxLayout:
+                id: p
+                orientation: "vertical"
+                ScreenManager:
+                    id: scr_mngr
+                    PersonalDetails:
+        BoxLayout:
+            id: footer
+            size_hint_y: None
+            height: 40
+            canvas.before:
+                Color: 
+                    rgba: box_bg_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            ULabelFooter:
+            

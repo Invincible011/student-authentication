@@ -1,6 +1,25 @@
-from faculty import Faculty
-from setup.Configure import zzz
+from kivy.config import Config
+Config.set('graphics', 'width', '480')
+Config.set('graphics', 'height', '853')
+from kivy.app import App
+from kivy.lang import Builder
+from kivy.uix.screenmanager import ScreenManager
+from signin.screen import *
+from student.student import *
 
+Builder.load_file("signin/access.kv")
+Builder.load_file("student/stud_assest.kv")
+
+class MainWindow(ScreenManager):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+        
+class MainApp(App):
+    def build(self):
+        self.root = MainWindow()
+        
+    
 if __name__ == "__main__":
-    fac = Faculty()
-    fac.calculate_gpa()
+    ma = MainApp()
+    ma.run()
