@@ -3,8 +3,6 @@ Config.set('graphics', 'width', '480')
 Config.set('graphics', 'height', '853')
 from kivy.app import App
 from kivy.lang import Builder
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.button import Button
 from kivy.uix.screenmanager import ScreenManager
 from signin.screen import *
 from student.student import *

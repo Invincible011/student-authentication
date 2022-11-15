@@ -14,7 +14,6 @@ class LoginWindow(Screen):
     def _initialise(self):
         time = datetime.now()
         date = time.strftime("%Y")
-        #print(f"Am going to ROOT WIDGET:, and It's {self.parent.get_screen('login_scr').ids.t1.text}")
         date1 = self.ids.t1
         date1.text = "©" + date + ". University of Ilorin, Ilorin. All right reserved | Developed by Fandroid Tech."
         time = int(time.strftime("%H"))
@@ -24,13 +23,11 @@ class LoginWindow(Screen):
             greet.font_size = 36
             greet.bold = True
             greet.text = "Good Morning"
-        
         elif time >= 12 | time < 15:
             greet = self.ids.greet
             greet.font_size = 36
             greet.bold = True
-            greet.text = "Good Afternoon"
-                    
+            greet.text = "Good Afternoon"            
         else:
             greet = self.ids.greet
             greet.font_size = 36
@@ -70,6 +67,7 @@ class LoginWindow(Screen):
                 show_pwd.disabled = True
                 self.parent.current = "scr_stud"
                 self.parent.transition.direction = "left"
+                info.text = ""
                 
             elif username != '1' and password != '1':
                 uname.focus = True
@@ -88,5 +86,5 @@ class LoginWindow(Screen):
                     info.text = '[color=#FF0000][b]Invalid password[/b][/color]'
                     show_pwd.disabled = False   
                       
-    def dispose(self):
+    def close(self):
         return exit()

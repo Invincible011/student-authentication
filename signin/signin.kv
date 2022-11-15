@@ -37,7 +37,7 @@
                 size_hint_x: .2
                 background_color: rgba(.04, .45, .45, 1)
                 background_normal: ""
-                on_release: root.dispose()
+                on_release: root.close()
         BoxLayout:
             orientation: "vertical"
             padding: main_win.space_x -80 , 10
@@ -52,7 +52,7 @@
                 size_hint_y: None
                 height: 30
                 text: '"Use your matric number as your username"'
-                color: (0, 0, 1, .7)
+                color: normal_green
                 bold: True
             BoxLayout:
                 orientation: 'vertical'
@@ -73,7 +73,7 @@
                 UText: 
                     id: user
                     text: ''
-                    hint_text: "username..."
+                    hint_text: "matric number..."
                     focus: True
                     on_text_validate: pwd.focus = True
                 UText: 
