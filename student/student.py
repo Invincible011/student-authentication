@@ -61,17 +61,57 @@ class NewBox(BoxLayout):
     def p_main_menu(self):
         self.remove_inserted_widget()
     
+    def details(self):
+        self.remove_inserted_widget()
+    
+    def change_password(self):
+        self.remove_inserted_widget()
+        
     def logout(self):
         me = self.parent.parent.parent.parent.parent.parent
         me.current = 'scr_si'
         self.remove_inserted_widget()
-        self.state = 'normal'
+        self.parent.parent.parent.\
+            parent.parent.parent.\
+            transition.direction = "right"
     
+    #Main_Menu Toggle Button functions
+    def p_reg(self):
+        self.remove_inserted_widget()
        
-class MainDashboard(BoxLayout):
+    def curr_charge(self):
+        self.remove_inserted_widget()
+    
+    def sch_charge(self):
+        self.remove_inserted_widget()
+        
+    def course_reg(self):
+        self.remove_inserted_widget()
+        
+    def complete_courses(self):
+        self.remove_inserted_widget()
+        
+    def payment(self):
+        self.remove_inserted_widget()
+    
+    def result(self):
+        self.remove_inserted_widget()
+        
+    def revalidation(self):
+        self.remove_inserted_widget()
+        
+    def clearance(self):
+        self.remove_inserted_widget()
+        
+    def screening_result(self):
+        self.remove_inserted_widget()
+        
+        
+        
+class MainDashboard(NewBox, BoxLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-    
+            
     def togglemenutab(self):
 
         toggle = self.ids.menu        

@@ -47,7 +47,7 @@
                 pos_hint: {'center_x': .5, 'center_y': .5}
             Label:
                 size_hint_y: None
-                height: 100
+                height: 70
             Label:
                 size_hint_y: None
                 height: 30
@@ -73,12 +73,12 @@
                 UText: 
                     id: user
                     text: ''
-                    hint_text: "matric number..."
+                    hint_text: "Username..."
                     focus: True
                     on_text_validate: pwd.focus = True
                 UText: 
                     id: pwd
-                    hint_text: "password..."
+                    hint_text: "Password..."
                     password: True
                     on_text_validate: root.validate_user()
             FlatButton1:
