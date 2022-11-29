@@ -1,3 +1,5 @@
+#: import Clock kivy.clock.Clock
+
 <MainDashboard>:
     BoxLayout:
         orientation: 'vertical'
@@ -91,6 +93,8 @@
                         pos: self.pos
                 NewBox:
                     orientation: 'vertical'
+                    on_kv_post: 
+                        Clock.schedule_once(lambda x: self.assign_root(app.root))
                     Toggle:
                         id: p_setup
                         text: "PERSONAL SETUP"
