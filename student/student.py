@@ -17,23 +17,30 @@ main_win = Builder.load_file('student/studdash.kv')
 
 
 class Dropdown(BoxLayout):
+    
     button_list = ListProperty()
+    
     font_size = 9
+    
     def __init__(self, button_list, scrn_mngr, **kwargs):
-        
         super().__init__(**kwargs)
         self.button_list = button_list     
+    
         self.mngr = scrn_mngr
     def on_button_list(self, object, values):
-        
         for name, fnc in values:
             self.add_widget(Button(text=name, font_size= self.font_size, on_press = fnc, background_color=(0,0,0,.2), background_normal='', bold=True))
             
-
+    
 class NewBox(BoxLayout):
+    root = ObjectProperty(None)
     dropdown = ObjectProperty(None)
     mynone = ObjectProperty([])
     
+    def assign_root(self, root):
+        self.root = root
+        print(self.root)
+        
     def remove_inserted_widget(self, *args, **kwargs):
         if self.dropdown:
             self.remove_widget(self.dropdown)
@@ -61,17 +68,54 @@ class NewBox(BoxLayout):
     def p_main_menu(self):
         self.remove_inserted_widget()
     
-    def logout(self):
-        me = self.parent.parent.parent.parent.parent.parent
-        me.current = 'scr_si'
+    def details(self):
         self.remove_inserted_widget()
-        self.state = 'normal'
     
+    def change_password(self):
+        self.remove_inserted_widget()
+        
+    def logout(self):
+        self.root.current = 'scr_si'
+        self.remove_inserted_widget()
+        self.root.transition.direction = "right"
+    
+    #Main_Menu Toggle Button functions
+    def p_reg(self):
+        self.remove_inserted_widget()
        
+    def curr_charge(self):
+        self.remove_inserted_widget()
+    
+    def sch_charge(self):
+        self.remove_inserted_widget()
+        
+    def course_reg(self):
+        self.remove_inserted_widget()
+        
+    def complete_courses(self):
+        self.remove_inserted_widget()
+        
+    def payment(self):
+        self.remove_inserted_widget()
+    
+    def result(self):
+        self.remove_inserted_widget()
+        
+    def revalidation(self):
+        self.remove_inserted_widget()
+        
+    def clearance(self):
+        self.remove_inserted_widget()
+        
+    def screening_result(self):
+        self.remove_inserted_widget()
+        
+        
+        
 class MainDashboard(BoxLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-    
+            
     def togglemenutab(self):
 
         toggle = self.ids.menu        

@@ -1,3 +1,5 @@
+#: import Clock kivy.clock.Clock
+
 <MainDashboard>:
     BoxLayout:
         orientation: 'vertical'
@@ -91,6 +93,8 @@
                         pos: self.pos
                 NewBox:
                     orientation: 'vertical'
+                    on_kv_post: 
+                        Clock.schedule_once(lambda x: self.assign_root(app.root))
                     Toggle:
                         id: p_setup
                         text: "PERSONAL SETUP"
@@ -104,10 +108,10 @@
                         text: "MAIN MENU"
                         halign: 'left'
                         on_state: 
-                            self.parent.insert_widget(Factory.Dropdown([('Procedures for Registration', lambda x:print("Hello Main")), ('Current Charges', lambda x:print("Hello Main")), ('School Charges Payment', lambda x:print("Hello Main")),\
-                            ('Course Registration', lambda x:print("Hello Main")), ('Print Completed Course Form', lambda x:print("Hello Main")),\
-                            ('Print Payment Receipts', lambda x:print("Hello Main")), ('Print Results', lambda x:print("Hello Main")), ('Revalidation', lambda x:print("Hello Main")),\ 
-                            ('Print Admission Clearance', lambda x:print("Hello Main")), ('Admission Screening Result', lambda x:print("Hello Main"))], scr_mngr), self)\
+                            self.parent.insert_widget(Factory.Dropdown([('Procedures for Registration', lambda x: self.parent.p_reg()), ('Current Charges', lambda x:self.parent.curr_charge()), ('School Charges Payment', lambda x:self.parent.sch_charge()),\
+                            ('Course Registration', lambda x: self.parent.course_reg()), ('Print Completed Course Form', lambda x: self.parent.complete_courses()),\
+                            ('Print Payment Receipts', lambda x: self.parent.payment()), ('Print Results', lambda x: self.parent.result()), ('Revalidation', lambda x:self.parent.revalidation()),\ 
+                            ('Print Admission Clearance', lambda x: self.parent.clearance()), ('Admission Screening Result', lambda x:self.parent.screening_result())], scr_mngr), self)\
                             if self.state != "normal" else self.parent.remove_inserted_widget()
                         group: 'user_navs'
                     Toggle:
