@@ -2,7 +2,7 @@
 *__init__.py
 .vscode
 database
-venv
+env
 test.py
 del.kv
 del.py
